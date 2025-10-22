@@ -3,8 +3,6 @@ package davidebraghi.U5_W3_D3_Davide_Braghi.adapters;
 import davidebraghi.U5_W3_D3_Davide_Braghi.entities.Info;
 import davidebraghi.U5_W3_D3_Davide_Braghi.interfaces.DataSource;
 
-import java.util.Calendar;
-
 public class InfoAdapter implements DataSource {
     private Info info;
 
@@ -13,23 +11,18 @@ public class InfoAdapter implements DataSource {
     }
 
     @Override
+    public void getNomeCompleto(String nomeCompleto) {
+        info.setNome("Mario");
+        info.setCognome("Rossi");
+    }
+
+    @Override
     public String getNomeCompleto() {
-        return info.getNomeCompleto();
+        return "";
     }
 
     @Override
     public int getEta() {
-        Calendar birth = Calendar.getInstance();
-        birth.setTime(info.getDataDiNascita());
-
-        Calendar today = Calendar.getInstance();
-
-        int eta = (today.get(Calendar.YEAR) - birth.get(Calendar.YEAR));
-
-        if (today.get(Calendar.DAY_OF_YEAR) < birth.get(Calendar.DAY_OF_YEAR)) {
-            eta--;
-        }
-
-        return eta;
+        return 0;
     }
 }
